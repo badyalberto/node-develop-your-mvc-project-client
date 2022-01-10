@@ -1,3 +1,4 @@
 export const actionTypes = {
   FETCH_PRODUCTS: "FETCH_PRODUCTS",
+  OPEN_SHOPPING_CARD: "OPEN_SHOPPING_CART"
 };

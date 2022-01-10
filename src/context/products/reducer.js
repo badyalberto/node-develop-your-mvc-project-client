@@ -8,6 +8,7 @@ const initValues = {
   isLoading: false,
   hasError: false,
   totalPrice: 0,
+  open: false
 };
 
 const ProductsContext = createContext(initValues);

@@ -6,12 +6,12 @@ import { useAuth } from "../../context/authContext/reducer";
 import { signOut } from "../../firebase/firebase";
 
 export default function Navbar() {
-  const { currentUser,signOutProvider } = useAuth();
+  const { currentUser, signOutProvider } = useAuth();
 
-async function handleSignOut(){
-  await signOut();
-  signOutProvider();
-}
+  async function handleSignOut() {
+    await signOut();
+    signOutProvider();
+  }
 
   return (
     <>
@@ -47,20 +47,24 @@ async function handleSignOut(){
             <div className="hidden md:flex items-center justify-end md:flex-1">
               {currentUser ? (
                 <>
-                <img className="inline object-cover w-12 h-12 mr-2 rounded-full" src="https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile image"/>
-                 <Link
+                  <img
+                    className="inline object-cover w-12 h-12 mr-2 rounded-full"
+                    src="https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                    alt="Profile image"
+                  />
+                  <Link
                     to="/profile"
                     className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
                   >
                     {currentUser.name}
                   </Link>
-                <button
-                  to="/signout"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                  onClick={handleSignOut}
-                >
-                  Sign Out
-                </button>
+                  <button
+                    to="/signout"
+                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </button>
                 </>
               ) : (
                 <>
@@ -79,6 +83,22 @@ async function handleSignOut(){
                 </>
               )}
             </div>
+            <Link to="/checkout">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </Link>
           </div>
         </div>
 
